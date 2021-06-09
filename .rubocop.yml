@@ -1,0 +1,96 @@
+require:
+  - rubocop-performance
+  - rubocop-rails
+  - rubocop-rspec
+
+inherit_mode:
+  merge:
+    - Include
+
+AllCops:
+  Include:
+    - "**/*.gemspec"
+    - "**/*.rake"
+    - "**/Gemfile"
+    - "**/Rakefile"
+  Exclude:
+    - "bin/**/*"
+    - "config.ru"
+    - "config/initializers/*.rb"
+    - "config/puma.rb"
+    - "db/**/*"
+    - "lib/external_mocks/**/*"
+    - "node_modules/**/*"
+    - "script/**/*"
+    - "spec/spec_helper.rb"
+    - "spec/support/*.rb"
+    - "storage/**/*"
+    - "tmp/**/*"
+    - "vendor/**/*"
+  CacheRootDirectory: tmp/cache/rubocop_cache/
+  TargetRubyVersion: 2.7.2
+  DefaultFormatter: fuubar
+  NewCops: enable
+
+Layout/EndOfLine:
+  EnforcedStyle: lf
+
+Layout/LineLength:
+  Max: 120
+
+Layout/MultilineMethodCallIndentation:
+  EnforcedStyle: indented
+  IndentationWidth: 2
+
+Lint/AmbiguousBlockAssociation:
+  Exclude:
+    - "spec/**/*"
+
+Metrics/AbcSize:
+  Exclude:
+    - "spec/support/test_helpers/processes/*_steps.rb"
+
+Metrics/BlockLength:
+  Enabled: false
+
+Metrics/MethodLength:
+  Exclude:
+    - "app/permitted_attrs/**/*"
+    - "db/migrate/*"
+    - "spec/support/test_helpers/processes/*_steps.rb"
+
+Rails/Output:
+  Exclude:
+    - "db/seeds/**/*"
+
+Rails/SkipsModelValidations:
+  Enabled: false
+
+Rails/HasAndBelongsToMany:
+  Enabled: false
+
+RSpec/AnyInstance:
+  Enabled: false
+
+RSpec/DescribeClass:
+  Exclude:
+    - "spec/features/**/*"
+    - "spec/tasks/**/*"
+    - "spec/factories_spec.rb*"
+    - "spec/i18n_spec.rb*"
+
+RSpec/EmptyExampleGroup:
+  Exclude:
+    - "spec/requests/**/*"
+
+RSpec/ExampleLength:
+  Enabled: false
+
+RSpec/MultipleExpectations:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false

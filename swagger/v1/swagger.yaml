@@ -1,0 +1,33 @@
+---
+openapi: 3.0.1
+info:
+  title: API V1
+  version: v1
+paths:
+  "/api/v1/partners/match":
+    parameters:
+    - name: address
+      in: query
+      description: Address
+      schema:
+        type: string
+    - name: floor_material
+      in: query
+      description: Material for the floor (wood, carpet, tiles)
+      schema:
+        type: string
+    - name: floor_meters
+      in: query
+      description: Square meters of the floor
+      schema:
+        type: integer
+    - name: phone
+      in: query
+      description: Phone number
+      schema:
+        type: string
+    post:
+      summary: match partners
+      responses:
+        '200':
+          description: successful

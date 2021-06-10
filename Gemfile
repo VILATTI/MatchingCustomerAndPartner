@@ -8,6 +8,7 @@ gem 'bootsnap', '>= 1.4.4', require: false
 gem 'colorize'
 gem 'faraday'
 gem 'faraday-http-cache'
+gem 'geocoder'
 gem 'jbuilder', '~> 2.7'
 gem 'pg'
 gem 'puma', '~> 5.0'

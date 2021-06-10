@@ -1,10 +1,14 @@
 class CreatePartners < ActiveRecord::Migration[6.1]
   def change
     create_table :partners do |t|
-      t.json :flooring_materials
-      t.string :address
-      t.integer :operating_radius_km
+      t.string :name
+
+      t.string :flooring_materials, array: true
       t.float :rating
+
+      t.string :address
+      t.float :latitude
+      t.float :longitude
 
       t.timestamps
     end

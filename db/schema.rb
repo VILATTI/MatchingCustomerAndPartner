@@ -16,10 +16,12 @@ ActiveRecord::Schema.define(version: 2021_06_09_093402) do
   enable_extension "plpgsql"
 
   create_table "partners", force: :cascade do |t|
-    t.json "flooring_materials"
-    t.string "address"
-    t.integer "operating_radius_km"
+    t.string "name"
+    t.string "flooring_materials", array: true
     t.float "rating"
+    t.string "address"
+    t.float "latitude"
+    t.float "longitude"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

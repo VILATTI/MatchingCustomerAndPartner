@@ -1,24 +1,32 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Info
 
-Things you may want to cover:
+In seeds you can find partners which created around Berlin.
+For testing please use some address from Verlin city.
+You can get any address from Google Maps and request the api.
 
-* Ruby version
+Allowed flooring materials: wood | carpet | tiles
 
-* System dependencies
+# Docker startup
 
-* Configuration
+- docker compose -f docker-compose.dev.yml up
 
-* Database creation
+# Pure rails startup
 
-* Database initialization
+1. bundle install
+2. rails db:create
+3. rails db:migrate
+4. rails db:seed
+5. rails s
 
-* How to run the test suite
+# Api docs
 
-* Services (job queues, cache servers, search engines, etc.)
+http://localhost:3000/api-docs
 
-* Deployment instructions
+# Tests
 
-* ...
+- rspec spec
+
+Coverage: 100%
+Rubocop: pass

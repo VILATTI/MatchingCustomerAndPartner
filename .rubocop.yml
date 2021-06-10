@@ -89,6 +89,9 @@ RSpec/ExampleLength:
 RSpec/MultipleExpectations:
   Enabled: false
 
+RSpec/MultipleMemoizedHelpers:
+  Max: 6
+
 Style/Documentation:
   Enabled: false
 

@@ -3,13 +3,20 @@ class Partner < ApplicationRecord
   MIN_RATING = 1.0
   MAX_RATING = 5.0
 
+  geocoded_by :address
+  after_validation :geocode
+
+  validates :name, presence: true
   validates :address, presence: true
   validates :flooring_materials, presence: true
-  validates :operating_radius_km, presence: true, numericality: { only_integer: true }
   validates :rating, presence: true,
                      numericality: { greater_than_or_equal_to: MIN_RATING, less_than_or_equal_to: MAX_RATING }
 
   validate :flooring_materials_validity, if: :flooring_materials
+
+  def self.by_address_and_floor_material(address, floor_material)
+    Partner.where('? = ANY (flooring_materials)', floor_material).near(address).reorder('rating DESC, distance ASC')
+  end
 
   private
 
